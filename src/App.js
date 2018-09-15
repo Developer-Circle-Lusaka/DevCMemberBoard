@@ -1,21 +1,34 @@
-import React, { Component } from 'react';
-import  ApolloClient from 'apollo-boost'
-import {ApolloProvider} from 'react-apollo'
+import React, { Component ,} from 'react'
 import 'antd/dist/antd.css'
-import Developers from './components/DevelopersComponent'
-const client = new ApolloClient(
-  {
-    uri:'http://localhost:4000/graphql'
-  }
-)
-class App extends Component {
-  render() {
-    return (
-      <ApolloProvider client={client}>
-        <Developers/>>
-      </ApolloProvider>
-    );
-  }
+import {Provider} from 'react-redux'
+import configStore from './config/store'
+import {BrowserRouter,Route,Switch} from 'react-router-dom'
+const store= configStore()
+class AppRouterComponent extends Component {
+
+
+    render() {
+        return (
+       <div>
+           <BrowserRouter>
+            <Switch>
+                <Route path='/'/>
+                <Route path='/'/>
+            </Switch>
+           </BrowserRouter>
+
+       </div>
+
+           
+        )
+    }
 }
 
-export default App;
+const App=()=>(
+    <Provider store={store}>
+       <AppRouterComponent/>
+    </Provider>
+)
+
+
+export default App

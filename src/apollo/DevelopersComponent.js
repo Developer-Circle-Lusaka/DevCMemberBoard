@@ -5,7 +5,7 @@ import gql from 'graphql-tag'
 const Developers=()=>(
   <Query query={gql `
   {
-  developers{
+  developers{npm 
     skills{
       name,
       duration
@@ -23,7 +23,11 @@ const Developers=()=>(
 
   {({loading,error,data})=>{
       if(loading) return <h1>loadingdta...</h1>
-      if(error) return <p>Error :c</p>
+      if(error) {
+        console.log(error.message)
+        return <p>Error </p>
+     
+      }
       return data.developers.map(({linkdedIn,name,image})=>(
           <div>
               <p>

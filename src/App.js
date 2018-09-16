@@ -1,23 +1,30 @@
 import React, { Component ,} from 'react'
-import 'antd/dist/antd.css'
 import {Provider} from 'react-redux'
 import configStore from './config/store'
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
+import RegisterComponent from './components/pages/auth/Register'
+import NavBar from './components/widgets/navigation/NavBar'
+import UIkit from 'uikit/dist/css/uikit.css';
+import Icons from 'uikit/dist/js/uikit-icons';
+
 const store= configStore()
 class AppRouterComponent extends Component {
 
 
     render() {
         return (
-       <div>
-           <BrowserRouter>
+          <span>
+
+<NavBar/>
+ <BrowserRouter>
             <Switch>
-                <Route path='/'/>
-                <Route path='/'/>
+                <Route exact path='/register' component={RegisterComponent}/>
             </Switch>
            </BrowserRouter>
+          </span>
+          
 
-       </div>
+    
 
            
         )
